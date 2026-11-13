@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151221">
+  <meta name="description" content="Play a Nokia 3310-inspired Snake II game with a pixel LCD and a working phone keypad.">
+  <title>Snake II · Nokia 3310</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./game.js"></script>
+</head>
+<body>
+  <main class="layout">
+    <header class="intro">
+      <p class="model"><span></span> NOKIA 3310</p>
+      <h1>Snake <em>II</em></h1>
+      <p class="description">Eat the pixels. Grow your snake. Try to beat your best score.</p>
+      <div class="options">
+        <label for="maze">Maze</label>
+        <select id="maze">
+          <option value="classic">Classic · wraparound</option>
+          <option value="box">Box · outer walls</option>
+          <option value="cross">Cross · walls &amp; obstacles</option>
+        </select>
+        <label for="speed">Speed</label>
+        <select id="speed">
+          <option value="1">1 · Slow</option>
+          <option value="2" selected>2 · Normal</option>
+          <option value="3">3 · Fast</option>
+          <option value="4">4 · Turbo</option>
+        </select>
+      </div>
+      <p class="controls"><kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> or <kbd>2</kbd> <kbd>4</kbd> <kbd>8</kbd> <kbd>6</kbd> to steer<br><kbd>Space</kbd> to start or pause</p>
+    </header>
+
+    <section class="phone" aria-label="Nokia 3310 game">
+      <div class="speaker" aria-hidden="true"></div>
+      <div class="face">
+        <div class="brand" aria-hidden="true">NOKIA</div>
+        <div class="lcd">
+          <div class="scores">
+            <span>SCORE <strong id="score">000</strong></span>
+            <span>BEST <strong id="best">000</strong></span>
+          </div>
+          <div class="board">
+            <canvas id="board" width="224" height="144" aria-label="Snake playing field"></canvas>
+            <div class="screen-message" id="message" role="status">
+              <strong id="message-title">SNAKE II</strong>
+              <span id="message-detail">PRESS START</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="action" id="action" type="button">Start</button>
+      <div class="keypad" aria-label="Direction keypad">
+        <span class="key" aria-hidden="true">1</span>
+        <button class="key" type="button" data-direction="up" aria-label="Steer up">2 <small>▲</small></button>
+        <span class="key" aria-hidden="true">3</span>
+        <button class="key" type="button" data-direction="left" aria-label="Steer left">4 <small>◀</small></button>
+        <span class="key" aria-hidden="true">5</span>
+        <button class="key" type="button" data-direction="right" aria-label="Steer right">6 <small>▶</small></button>
+        <span class="key" aria-hidden="true">7</span>
+        <button class="key" type="button" data-direction="down" aria-label="Steer down">8 <small>▼</small></button>
+        <span class="key" aria-hidden="true">9</span>
+        <span class="key" aria-hidden="true">*</span>
+        <span class="key" aria-hidden="true">0</span>
+        <span class="key" aria-hidden="true">#</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
